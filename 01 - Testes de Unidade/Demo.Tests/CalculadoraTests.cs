@@ -10,7 +10,7 @@ namespace Demo.Tests
     public class CalculadoraTests
     {
         [Fact]
-        public void  Calculadora_Somar_RetornarValorSoma()
+        public void  Calculadora_Somar_DeveSerIgual()
         {
             // Arrange
             var calculadora = new Calculadora();
@@ -20,6 +20,19 @@ namespace Demo.Tests
 
             // Assert
             Assert.Equal(4, resultado);
+        }
+
+        [Fact]
+        public void Calculadora_Somar_NaoDeveSerIgual()
+        {
+            // Arrange
+            var calculadora = new Calculadora();
+
+            // Act
+            var resultado = calculadora.Somar(1.234234234234, 2.12343254234);
+
+            // Assert
+            Assert.NotEqual(3.3, resultado, 1);
         }
 
         [Theory]
